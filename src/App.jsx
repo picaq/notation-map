@@ -19,7 +19,7 @@ function App() {
     document.querySelector('#output').innerText = '';
   };
   const factory = new Factory({
-    renderer: { elementId: "output", maxWidth: 500, height: 400 },
+    renderer: { elementId: "output", width: 500, height: 700 },
   });
   
   const updateSvg = (n) => {
@@ -36,7 +36,7 @@ function App() {
       .System()
       .addStave({
           voices: [
-            score.voice(score.notes(`${note}/h, ${note}/q, ${note}/q`)), 
+            score.voice(score.notes(`C#5/q, ${note}/q, C#5/h`)), 
           ],
       })
       .addClef("treble")
