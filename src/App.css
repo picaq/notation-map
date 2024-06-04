@@ -1,0 +1,33 @@
+:root {
+  --brown: rgb(53, 39, 30);
+  --lightgrey: #999;
+  --darkgrey: #666;
+}
+
+html {
+  background: #ccc;
+  color: var(--brown);
+}
+
+a { color: cornflowerblue }
+
+/* body {
+  margin: 0 auto;
+  max-width: 52rem;
+  padding: 0 1rem;
+} */
+
+section g {
+  fill: var(--lightgrey);
+  stroke: var(--lightgrey);
+}
+
+section g.vf-stave, g.vf-clef, .vf-timesignature, .vf-stavebarline {
+  fill: var(--darkgrey);
+  stroke: var(--darkgrey);
+}
+
+.vf-stavenote {
+  fill: var(--brown);
+  stroke: var(--brown);
+}
