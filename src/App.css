@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+:root {
+  --brown: rgb(53, 39, 30);
+  --lightgrey: #999;
+  --darkgrey: #666;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  background: #ccc;
+  color: var(--brown);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a { color: cornflowerblue }
+
+/* body {
+  margin: 0 auto;
+  max-width: 52rem;
+  padding: 0 1rem;
+} */
+
+section g {
+  fill: var(--lightgrey);
+  stroke: var(--lightgrey);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+section g.vf-stave, g.vf-clef, .vf-timesignature, .vf-stavebarline {
+  fill: var(--darkgrey);
+  stroke: var(--darkgrey);
 }
 
-.App-link {
-  color: #61dafb;
+#output .vf-stavenote, .vf-stavenote path {
+  fill: var(--brown);
+  stroke: var(--brown);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input, h2 span {
+  text-transform: capitalize;
+}
+
+#output svg:nth-of-type(even),
+#output .vf-stavenote:nth-of-type(odd) {
+  display: none;
+}
+
+#output svg {
 }
