@@ -1,6 +1,8 @@
 # Notation Map
+[picaq](https://github.com/picaq) / [epa-uv](https://github.com/picaq/notation-map)
 - CRA didn’t automatically generate a readme this time
-- View it here: [Noation Map](https://picaq.github.io/notation-map/)
+- Uses React and [vexflow](https://github.com/0xfe/vexflow) 
+- View it here: [Notation Map](https://picaq.github.io/notation-map/)
 <img src="https://github.com/picaq/notation-map/assets/34908590/4d3f0d1d-525e-4e47-9623-e226b49a13b7" alt="app screenshot" width="402" align=left>
 
 ## Todo
