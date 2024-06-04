@@ -27,7 +27,19 @@ section g.vf-stave, g.vf-clef, .vf-timesignature, .vf-stavebarline {
   stroke: var(--darkgrey);
 }
 
-.vf-stavenote {
+#output .vf-stavenote, .vf-stavenote path {
   fill: var(--brown);
   stroke: var(--brown);
+}
+
+input, h2 span {
+  text-transform: capitalize;
+}
+
+#output svg:nth-of-type(even),
+#output .vf-stavenote:nth-of-type(odd) {
+  display: none;
+}
+
+#output svg {
 }
