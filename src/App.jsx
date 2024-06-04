@@ -19,14 +19,14 @@ function App() {
     document.querySelector('#output').innerText = '';
   };
   const factory = new Factory({
-    renderer: { elementId: "output", maxWidth: 500, height: 400 },
+    renderer: { elementId: "output", width: 500, height: 700 },
   });
   
   const updateSvg = (n) => {
     clear();
     if (!!n.match(/^[A-Ga-g]{1}[b,#]{0,1}\d{1}$/)) { 
       setNote(n);
-      setDisplayNote((n.replace('b', '♭').replace('#', '♯')));
+      setDisplayNote((n.replace(/(?<=[a-gA-G])b(?=\d{1})/, '♭').replace('#', '♯')));
     }
     document.querySelector('#output svg')?.remove();
   }
@@ -36,7 +36,7 @@ function App() {
       .System()
       .addStave({
           voices: [
-            score.voice(score.notes(`${note}/h, ${note}/q, ${note}/q`)), 
+            score.voice(score.notes(`C#5/q, ${note}/q, C#5/h`)), 
           ],
       })
       .addClef("treble")

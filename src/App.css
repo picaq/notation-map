@@ -42,4 +42,6 @@ input, h2 span {
 }
 
 #output svg {
+  transform: scale(1.5) translateX(-.5rem);
+  transform-origin: top left;
 }
