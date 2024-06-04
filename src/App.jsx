@@ -19,7 +19,7 @@ function App() {
     document.querySelector('#output').innerText = '';
   };
   const factory = new Factory({
-    renderer: { elementId: "output", width: 500, height: 700 },
+    renderer: { elementId: "output", width: 175, height: 255 },
   });
   
   const updateSvg = (n) => {
