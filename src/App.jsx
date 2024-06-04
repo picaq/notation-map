@@ -26,7 +26,7 @@ function App() {
     clear();
     if (!!n.match(/^[A-Ga-g]{1}[b,#]{0,1}\d{1}$/)) { 
       setNote(n);
-      setDisplayNote((n.replace('b', '♭').replace('#', '♯')));
+      setDisplayNote((n.replace(/(?<=[a-gA-G])b(?=\d{1})/, '♭').replace('#', '♯')));
     }
     document.querySelector('#output svg')?.remove();
   }
