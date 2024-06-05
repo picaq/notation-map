@@ -18,6 +18,8 @@ for (let i = 0; i <= 9 ; i++) {
   flats.push(...letters.map( a => a + 'b' + i ));
 }
 
+const matrix = [flats, diatonic, sharps];
+
 function App() {
   const [note, setNote] = useState('C4');
   const [inputNote, setInputNote] = useState('C4');
@@ -57,7 +59,7 @@ function App() {
       .System()
       .addStave({
           voices: [
-            score.voice(score.notes(`C#5/q, ${note}/q, C#5/h`)), 
+            score.voice(score.notes(`C${accidental === 0 ? '#' : ''}5/q, ${note}/q, C#5/h`)), 
           ],
       })
       .addClef("treble")
