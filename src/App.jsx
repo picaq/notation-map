@@ -109,8 +109,6 @@ function App() {
     updateSvg(inputNote);
   }, [inputNote]);
 
-  // document.querySelector('#output .vf-stavenote:nth-of-type(even)').draggable = true;
-
   return (
     <>
 
