@@ -22,6 +22,8 @@ function App() {
   const [note, setNote] = useState('C4');
   const [inputNote, setInputNote] = useState('C4');
   const [displayNote, setDisplayNote] = useState('C4');
+  const [index, setIndex] = useState(28);
+  const [accidental, setAccidental] = useState(0);
 
   const clear = () => {
     document.querySelector('#output').innerText = '';
@@ -34,6 +36,17 @@ function App() {
     clear();
     if (!!n.match(/^[A-Ga-g]{1}[b,#]{0,1}\d{1}$/)) { 
       setNote(n);
+      if (!!n.match('b')) {
+        setIndex(flats.indexOf(n));
+        setAccidental(-1);
+      } else if (!!n.match('#')) {
+        setIndex(sharps.indexOf(n));
+        setAccidental(1);
+      } else {
+        setIndex(diatonic.indexOf(n));
+        setAccidental(0);
+      }
+      setIndex(diatonic.indexOf(n))
       setDisplayNote((n.replace(/(?<=[a-gA-G])b(?=\d{1})/, '♭').replace('#', '♯')));
     }
     document.querySelector('#output svg')?.remove();
@@ -49,6 +62,8 @@ function App() {
       })
       .addClef("treble")
   factory.draw();
+
+  document.querySelector('#output .vf-stavenote:nth-of-type(even)').draggable = true;
 
   return (
     <>
