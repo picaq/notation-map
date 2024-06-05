@@ -9,6 +9,14 @@ import { Vex, Stave, StaveNote, Formatter, Flow, Factory, EasyScore} from "vexfl
 console.log(Vex.Flow.BUILD);
 console.log("VexFlow Build:", Vex.Flow.BUILD);
 
+const letters = ["C", "D", "E", "F", "G", "A", "B"];
+
+const diatonic = [], sharps = [], flats = [];
+for (let i = 0; i <= 9 ; i++) {
+  diatonic.push(...letters.map( a => a + i ));
+  sharps.push(...letters.map( a => a + '#' + i ));
+  flats.push(...letters.map( a => a + 'b' + i ));
+}
 
 function App() {
   const [note, setNote] = useState('C4');
