@@ -4,6 +4,7 @@
   --lightgrey: #999;
   --darkgrey: #666;
   --background: #ccc;
+  --glow: rgb(202, 168, 0);
 }
 
 html {
@@ -49,6 +50,7 @@ input {
   box-shadow: none; /* Remove box shadow */
   outline: none; /* Remove outline */
   border-bottom: 1pt solid var(--brown);
+  padding-top: .5rem;
 }
 
 button {
@@ -62,6 +64,18 @@ button {
   margin-top: .2em;
   padding: 0 .5rem;
   margin-left: -.5rem;
+}
+.accidentals {
+  font-size: 1.5em;
+  margin-top: -.15rem;
+  opacity: .92;
+}
+.accidentals button:nth-of-type(2) {
+  padding-right: .54rem;
+}
+
+button:hover {
+  text-shadow: .5pt .5pt 4pt var(--glow);
 }
 
 #output svg, 

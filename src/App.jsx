@@ -130,7 +130,9 @@ function App() {
     </input>
     </label>
 
-    <form action="">
+    <form 
+      action=""
+      >
       <button 
         type="submit"
         value="random"
@@ -143,7 +145,9 @@ function App() {
       </button>
     </form>
 
-    <form action="">
+    <form action=""
+      className="accidentals" 
+      >
       <button 
         type="button"
         onClick={()=>insertFlat()}
