@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Vex, Stave, StaveNote, Formatter, Flow, Factory, EasyScore} from "vexflow";
+import Markdown from 'react-markdown';
+import file from './README.md'
 
 // import { JSDOM } from "jsdom";
 // import { jsPDF } from "jspdf";
@@ -109,6 +111,15 @@ function App() {
     {setInputNote(inputNote.replace(/(?<=[a-gA-G])b(?=\d{1})/, ''))};
   }
 
+  const [markdown, setMarkdown] = useState("");
+  const [showMarkdown, setShowMarkdown] = useState(false);
+
+  useEffect(() => {
+    fetch(file)
+      .then((res) => res.text())
+      .then((text) => setMarkdown(text));
+  }, []);
+
   return (
     <>
 
@@ -170,7 +181,15 @@ function App() {
       </button>
 
     </form>
-    
+
+    <button id="markdown-button"
+      onClick={()=> setShowMarkdown(!showMarkdown)}
+    ><i>{showMarkdown ? 'x' : 'i'}</i></button>
+    { showMarkdown && <section id="markdown">
+      <Markdown children={markdown} />
+    </section>
+    }
+
     </>
   );
 }
