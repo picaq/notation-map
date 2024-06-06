@@ -96,7 +96,7 @@ function App() {
     <>
 
     <h1>Notation Map</h1>
-    <h2>Current note: <span> {displayNote} </span></h2>
+    <h2>Current&nbsp;note: <span> {displayNote} </span></h2>
     <label
       // onClick={inputRef.current.focus()}
     >Note:&nbsp;
