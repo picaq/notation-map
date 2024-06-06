@@ -30,14 +30,10 @@ function App() {
   const clear = () => {
     document.querySelector('#output').innerText = '';
   };
-
-  const factory = new Factory({
-    renderer: { elementId: "output", width: 175, height: 255 },
-  });
   
   const updateSvg = (n) => {
-    clear();
     if (!!n.match(/^[A-Ga-g]{1}[b,#]{0,1}\d{1}$/)) { 
+      clear();
       setNote(n);
       if (!!n.match('b')) {
         setIndex(flats.indexOf(n));
@@ -52,8 +48,12 @@ function App() {
       setIndex(diatonic.indexOf(n))
       setDisplayNote((n.replace(/(?<=[a-gA-G])b(?=\d{1})/, '♭').replace('#', '♯')));
     }
-    document.querySelector('#output svg')?.remove();
+    // document.querySelector('#output svg')?.remove();
   }
+
+  const factory = new Factory({
+    renderer: { elementId: "output", width: 175, height: 375 },
+  });
 
   const score = factory.EasyScore();
   factory
@@ -66,6 +66,7 @@ function App() {
       .addClef("treble")
   factory.draw();
 
+  document.querySelector('#output svg').setAttribute("viewBox", "0 -120 175 375");
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -83,19 +84,25 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    updateSvg(inputNote);
+  }, [inputNote]);
+
+
   return (
     <>
 
     <h1>Notation Map</h1>
     <h2>Current note: <span> {displayNote} </span></h2>
-    <label>Note:&nbsp;
+    <label
+      // onClick={inputRef.current.focus()}
+    >Note:&nbsp;
       <input
       style={{ display:'inline-block', maxWidth:'5.5em', textAlign:'center'}} 
       ref={inputRef}
       placeholder={matrix[Math.floor(3*Math.random())][Math.floor(70*Math.random())]}
       onChange={(e) => {
         setInputNote(e.target.value.replace(/[^a-gA-G#\d]/, '').slice(0, 3));
-        updateSvg(e.target.value);
       }}
       value={inputNote}
     >

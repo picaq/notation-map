@@ -2,10 +2,11 @@
   --brown: rgb(53, 39, 30);
   --lightgrey: #999;
   --darkgrey: #666;
+  --background: #ccc;
 }
 
 html {
-  background: #ccc;
+  background: var(--background);
   color: var(--brown);
 }
 
@@ -34,6 +35,19 @@ section g.vf-stave, g.vf-clef, .vf-timesignature, .vf-stavebarline {
 
 input, h2 span {
   text-transform: capitalize;
+  z-index: 10;
+}
+input {
+  appearance: none; /* Remove default styling on WebKit */
+  -webkit-appearance: none; /* Remove default styling on WebKit */
+  -moz-appearance: none; /* Remove default styling on Firefox */
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  background: none; /* Remove background */
+  box-shadow: none; /* Remove box shadow */
+  outline: none; /* Remove outline */
+  border-bottom: 1pt solid var(--brown);
 }
 
 #output svg,
@@ -46,6 +60,14 @@ input, h2 span {
 }
 
 #output svg {
-  transform: scale(1.5) translateX(-.5rem);
+  transform: scale(1.5) translate(-.5rem, -5rem);
   transform-origin: top left;
+  z-index: -12;
+}
+
+#output svg {
+  /* debugging */
+  /* background: #f001; */ 
+  z-index: -1;
+  position: relative;
 }
