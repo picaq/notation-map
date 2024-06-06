@@ -91,6 +91,11 @@ function App() {
 
   const randomNote = () => matrix[Math.floor(3*Math.random())][Math.floor(70*Math.random())];
 
+  const insertFlat = () => {
+    if (!!inputNote.match('#')) { setInputNote(inputNote.replace('#', 'b'))} else
+    if (diatonic.indexOf(inputNote) > -1) { setInputNote(flats[diatonic.indexOf(inputNote)])} else
+    if (inputNote.match(/^[a-gA-G]$/)) { setInputNote(inputNote + 'b')};
+  }
 
   return (
     <>
@@ -129,7 +134,7 @@ function App() {
     <form action="">
       <button 
         type="button"
-
+        onClick={()=>insertFlat()}
         >
           ♭
       </button>
