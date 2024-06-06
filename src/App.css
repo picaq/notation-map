@@ -62,7 +62,7 @@ button {
   margin-top: .2em;
 }
 
-#output svg,
+#output svg, #output .vf-stave, #output .vf-stavebarline,
 #output .vf-stavenote:nth-of-type(odd) {
   display: none;
 }
@@ -71,14 +71,31 @@ button {
   display: block;
 }
 
-#output svg {
+#output svg, #template svg {
   transform: scale(1.5) translate(-.5rem, -5rem);
   transform-origin: top left;
-  /* debugging */
-  /* background: #f001; */ 
   z-index: -1;
   position: relative;
 }
+
+#template {
+  position: fixed !important;
+  top: 0; left: 0;
+  z-index: -2;
+}
+
+#template svg{
+  top: 0; left: 0;
+  transform: scale(1.5) translate(.17rem,9.191rem);
+
+  max-width: 100vw;
+  max-height: 100vy;
+    /* debugging */
+  /* background: #f001;  */
+}
+
+
+
 /* #output .vf-stavenote:nth-of-type(even) > path , #output .vf-stavenote:nth-of-type(even) > .vf-notehead{
   filter: drop-shadow( 0 0 .5pt var(--background));
 } */
