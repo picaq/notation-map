@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/notation-map/static/css/main.16a44dd3.css",
-    "main.js": "/notation-map/static/js/main.3fe49aab.js",
+    "main.css": "/notation-map/static/css/main.d5ac6d93.css",
+    "main.js": "/notation-map/static/js/main.e8a5361b.js",
     "static/js/453.97007abb.chunk.js": "/notation-map/static/js/453.97007abb.chunk.js",
     "service-worker.js": "/notation-map/service-worker.js",
     "index.html": "/notation-map/index.html",
-    "main.16a44dd3.css.map": "/notation-map/static/css/main.16a44dd3.css.map",
-    "main.3fe49aab.js.map": "/notation-map/static/js/main.3fe49aab.js.map",
+    "static/media/README.md": "/notation-map/static/media/README.89004d5617617fe38b16.md",
+    "main.d5ac6d93.css.map": "/notation-map/static/css/main.d5ac6d93.css.map",
+    "main.e8a5361b.js.map": "/notation-map/static/js/main.e8a5361b.js.map",
     "453.97007abb.chunk.js.map": "/notation-map/static/js/453.97007abb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.16a44dd3.css",
-    "static/js/main.3fe49aab.js"
+    "static/css/main.d5ac6d93.css",
+    "static/js/main.e8a5361b.js"
   ]
 }
