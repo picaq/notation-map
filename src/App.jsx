@@ -54,6 +54,10 @@ function App() {
     renderer: { elementId: "output", width: 175, height: 375 },
   });
 
+  const factoryTemplate = new Factory({
+    renderer: { elementId: "template", width: 175, height: 375 },
+  });
+
   const score = factory.EasyScore();
   factory
       .System()
@@ -64,6 +68,16 @@ function App() {
       })
       .addClef("treble")
   factory.draw();
+
+  factoryTemplate
+      .System()
+      .addStave({
+          voices: [
+            score.voice(score.notes(`C${accidental === 0 ? '#' : ''}5/q, ${note}/q, C#5/h`)), 
+          ],
+      })
+      .addClef("treble")
+  factoryTemplate.draw();
 
   document.querySelector('#output svg').setAttribute("viewBox", "0 -120 175 375");
   const inputRef = useRef(null);
@@ -114,14 +128,26 @@ function App() {
     </label>
 
     <form action="">
-      <button type="submit"
-      onClick={ e=> {
+      <button 
+        type="submit"
+        value="random"
+        onClick={ e=> {
         e.preventDefault();
         setInputNote(randomNote());}
       }
       >
         <span className="underline">r</span>andom
       </button>
+    </form>
+
+    <form action="">
+      <button 
+        type="button"
+
+        >
+          ♭
+      </button>
+
     </form>
     
     </>
