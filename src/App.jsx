@@ -112,6 +112,17 @@ function App() {
       
     </input>
     </label>
+
+    <form action="">
+      <button type="submit"
+      onClick={ e=> {
+        e.preventDefault();
+        setInputNote(randomNote());}
+      }
+      >
+        <span className="underline">r</span>andom
+      </button>
+    </form>
     
     </>
   );

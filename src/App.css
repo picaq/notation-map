@@ -1,5 +1,6 @@
 :root {
   --brown: rgb(53, 39, 30);
+  --brown-dim: rgb(53, 39, 30, .7);
   --lightgrey: #999;
   --darkgrey: #666;
   --background: #ccc;
@@ -50,6 +51,17 @@ input {
   border-bottom: 1pt solid var(--brown);
 }
 
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-top: .2em;
+}
+
 #output svg,
 #output .vf-stavenote:nth-of-type(odd) {
   display: none;
@@ -62,12 +74,19 @@ input {
 #output svg {
   transform: scale(1.5) translate(-.5rem, -5rem);
   transform-origin: top left;
-  z-index: -12;
-}
-
-#output svg {
   /* debugging */
   /* background: #f001; */ 
   z-index: -1;
   position: relative;
 }
+/* #output .vf-stavenote:nth-of-type(even) > path , #output .vf-stavenote:nth-of-type(even) > .vf-notehead{
+  filter: drop-shadow( 0 0 .5pt var(--background));
+} */
+
+.underline {
+  text-decoration: underline;
+  text-decoration-color: var(--brown-dim);
+}
+
+h2 {color: var(--brown-dim)}
+h2 span {color: var(--brown)}
