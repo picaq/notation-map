@@ -22,7 +22,7 @@ const matrix = [flats, diatonic, sharps];
 
 function App() {
   const [note, setNote] = useState('C4');
-  const [inputNote, setInputNote] = useState('C4');
+  const [inputNote, setInputNote] = useState('');
   const [displayNote, setDisplayNote] = useState('C4');
   const [index, setIndex] = useState(28);
   const [accidental, setAccidental] = useState(0);
@@ -48,7 +48,6 @@ function App() {
       setIndex(diatonic.indexOf(n))
       setDisplayNote((n.replace(/(?<=[a-gA-G])b(?=\d{1})/, '♭').replace('#', '♯')));
     }
-    // document.querySelector('#output svg')?.remove();
   }
 
   const factory = new Factory({
@@ -74,7 +73,9 @@ function App() {
       if (key === 'Escape' ) {
         inputRef.current.focus();
         setInputNote('');
-        // clear();
+      }
+      if (key === 'r' ) {
+        setInputNote(randomNote());
       }
     }
     window.addEventListener('keydown', handler);
@@ -88,6 +89,8 @@ function App() {
     updateSvg(inputNote);
   }, [inputNote]);
 
+  const randomNote = () => matrix[Math.floor(3*Math.random())][Math.floor(70*Math.random())];
+
 
   return (
     <>
@@ -100,7 +103,7 @@ function App() {
       <input
       style={{ display:'inline-block', maxWidth:'5.5em', textAlign:'center'}} 
       ref={inputRef}
-      placeholder={matrix[Math.floor(3*Math.random())][Math.floor(70*Math.random())]}
+      placeholder={randomNote()}
       onChange={(e) => {
         setInputNote(e.target.value.replace(/[^a-gA-G#\d]/, '').slice(0, 3));
       }}
@@ -113,6 +116,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
