@@ -120,7 +120,7 @@ function App() {
       maxLength={3}
       style={{ display:'inline-block', maxWidth:'5em', textAlign:'center'}} 
       onChange={(e) => {
-        setInputNote(e.target.value);
+        setInputNote(e.target.value.replace(/[^a-gA-G#\d]/, '').slice(0, 3));
       }}
       onKeyDown={ e => changeNote(e.key) }
       onKeyUp={ e => !note && updateSvg(e.target.value) }
