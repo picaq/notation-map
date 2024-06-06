@@ -127,7 +127,6 @@ button:hover {
 h2 {color: var(--brown-dim)}
 h2 span {color: var(--brown)}
 
-
 #markdown {
   /* display: none; */
   z-index: 3;

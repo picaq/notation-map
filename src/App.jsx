@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Vex, Stave, StaveNote, Formatter, Flow, Factory, EasyScore} from "vexflow";
 import Markdown from 'react-markdown';
-import file from './README.md'
+import file from './README'
 
 // import { JSDOM } from "jsdom";
 // import { jsPDF } from "jspdf";
