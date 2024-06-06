@@ -114,14 +114,25 @@ function App() {
     </label>
 
     <form action="">
-      <button type="submit"
-      onClick={ e=> {
+      <button 
+        type="submit"
+        value="random"
+        onClick={ e=> {
         e.preventDefault();
         setInputNote(randomNote());}
       }
       >
         <span className="underline">r</span>andom
       </button>
+    </form>
+
+    <form action="">
+    <button 
+        type="button"
+        >
+          ♭
+      </button>
+
     </form>
     
     </>
