@@ -17,7 +17,7 @@ for (let i = 0; i <= 9 ; i++) {
   sharps.push(...letters.map( a => a + '#' + i ));
   flats.push(...letters.map( a => a + 'b' + i ));
 }
-
+const downcaseFlats = flats.map(x => x.toLowerCase());
 const matrix = [flats, diatonic, sharps];
 
 function App() {
@@ -35,17 +35,17 @@ function App() {
     if (!!n.match(/^[A-Ga-g]{1}[b,#]{0,1}\d{1}$/)) { 
       clear();
       setNote(n);
-      if (!!n.match('b')) {
-        setIndex(flats.indexOf(n));
-        setAccidental(-1);
-      } else if (!!n.match('#')) {
+      if (!!n.match('#')) {
         setIndex(sharps.indexOf(n));
         setAccidental(1);
+      } else 
+      if (!!n.match('b')) {
+        setIndex(downcaseFlats.indexOf(n.toLowerCase()));
+        setAccidental(-1);
       } else {
         setIndex(diatonic.indexOf(n));
         setAccidental(0);
       }
-      setIndex(diatonic.indexOf(n))
       setDisplayNote((n.replace(/(?<=[a-gA-G])b(?=\d{1})/, '♭').replace('#', '♯')));
     }
   }
@@ -92,21 +92,21 @@ function App() {
   const randomNote = () => matrix[Math.floor(3*Math.random())][Math.floor(70*Math.random())];
 
   const insertFlat = () => {
+    if (diatonic.indexOf(inputNote.toUpperCase()) > -1) { setInputNote(flats[diatonic.indexOf(inputNote.toUpperCase())])} else
     if (!!inputNote.match('#')) { setInputNote(inputNote.replace('#', 'b'))} else
-    if (diatonic.indexOf(inputNote) > -1) { setInputNote(flats[diatonic.indexOf(inputNote)])} else
-    if (inputNote.match(/^[a-gA-G]$/)) { setInputNote(inputNote + 'b')};
+    if (inputNote.match(/^[a-gA-G]$/)) { setInputNote(inputNote.toUpperCase() + 'b')};
   }
 
   const insertSharp = () => {
-    if (flats.indexOf(inputNote) > -1) { setInputNote(inputNote.replace(/(?<=[a-gA-G])b(?=\d{1})/, '#'))} else
-    if (diatonic.indexOf(inputNote) > -1) { setInputNote(sharps[diatonic.indexOf(inputNote)])} else
-    if (inputNote.match(/^[a-gA-G]{1}$/)) { setInputNote(inputNote + '#')};
+    if (inputNote.match(/^[a-gA-G]$/)) { setInputNote(inputNote.toUpperCase() + '#')} else
+    if (diatonic.indexOf(inputNote.toUpperCase()) > -1) { setInputNote(sharps[diatonic.indexOf(inputNote.toUpperCase())])} else
+    if (!!inputNote.match(/^[A-Ga-g]{1}[b]{0,1}\d{0,1}$/)) { setInputNote(inputNote.replace(/(?<=[a-gA-G])b(?=\d{0,1})/, '#'))};
   }
 
   const naturalize = () => {
     if (!!inputNote.match('#')) { setInputNote(inputNote.replace('#', ''))} else 
-    if (!!inputNote.match(/^[a-gA-G]{1}b$/)) { setInputNote(inputNote[0]) } else
-    {setInputNote(inputNote.replace(/(?<=[a-gA-G])b(?=\d{1})/, '').replace('b', ''))};
+    if (!!inputNote.match(/^[a-gA-G]b$/)) { setInputNote(inputNote[0]) } else
+    {setInputNote(inputNote.replace(/(?<=[a-gA-G])b(?=\d{1})/, ''))};
   }
 
   return (
