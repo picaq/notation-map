@@ -97,6 +97,18 @@ function App() {
     if (inputNote.match(/^[a-gA-G]$/)) { setInputNote(inputNote + 'b')};
   }
 
+  const insertSharp = () => {
+    if (flats.indexOf(inputNote) > -1) { setInputNote(inputNote.replace(/(?<=[a-gA-G])b(?=\d{1})/, '#'))} else
+    if (diatonic.indexOf(inputNote) > -1) { setInputNote(sharps[diatonic.indexOf(inputNote)])} else
+    if (inputNote.match(/^[a-gA-G]{1}$/)) { setInputNote(inputNote + '#')};
+  }
+
+  const naturalize = () => {
+    if (!!inputNote.match('#')) { setInputNote(inputNote.replace('#', ''))} else 
+    if (!!inputNote.match(/^[a-gA-G]{1}b$/)) { setInputNote(inputNote[0]) } else
+    {setInputNote(inputNote.replace(/(?<=[a-gA-G])b(?=\d{1})/, '').replace('b', ''))};
+  }
+
   return (
     <>
 
@@ -137,6 +149,20 @@ function App() {
         onClick={()=>insertFlat()}
         >
           ♭
+      </button>
+
+      <button 
+        type="button"
+        onClick={()=>naturalize()}
+        >
+          ♮
+      </button>
+
+      <button 
+        type="button"
+        onClick={()=>insertSharp()}
+        >
+          ♯
       </button>
 
     </form>

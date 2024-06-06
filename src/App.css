@@ -60,6 +60,8 @@ button {
   cursor: pointer;
   outline: inherit;
   margin-top: .2em;
+  padding: 0 .5rem;
+  margin-left: -.5rem;
 }
 
 #output svg, 
