@@ -36,9 +36,13 @@ input, h2 span {
   text-transform: capitalize;
 }
 
-#output svg:nth-of-type(even),
+#output svg,
 #output .vf-stavenote:nth-of-type(odd) {
   display: none;
+}
+
+#output svg:first-of-type {
+  display: block;
 }
 
 #output svg {

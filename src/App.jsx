@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Vex, Stave, StaveNote, Formatter, Flow, Factory, EasyScore} from "vexflow";
 
@@ -30,6 +30,7 @@ function App() {
   const clear = () => {
     document.querySelector('#output').innerText = '';
   };
+
   const factory = new Factory({
     renderer: { elementId: "output", width: 175, height: 255 },
   });
@@ -65,7 +66,22 @@ function App() {
       .addClef("treble")
   factory.draw();
 
-  document.querySelector('#output .vf-stavenote:nth-of-type(even)').draggable = true;
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    const handler = ({ key }) => {
+      if (key === 'Escape' ) {
+        inputRef.current.focus();
+        setInputNote('');
+        // clear();
+      }
+    }
+    window.addEventListener('keydown', handler);
+    return () => {
+      // This is the cleanup function
+      window.removeEventListener('keydown', handler);
+    };
+  }, []);
 
   return (
     <>
@@ -74,7 +90,9 @@ function App() {
     <h2>Current note: <span> {displayNote} </span></h2>
     <label>Note:&nbsp;
       <input
-      style={{ display:'inline-block', minWidth:'2em'}} 
+      style={{ display:'inline-block', maxWidth:'5.5em', textAlign:'center'}} 
+      ref={inputRef}
+      placeholder={matrix[Math.floor(3*Math.random())][Math.floor(70*Math.random())]}
       onChange={(e) => {
         setInputNote(e.target.value.replace(/[^a-gA-G#\d]/, '').slice(0, 3));
         updateSvg(e.target.value);
