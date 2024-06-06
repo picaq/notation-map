@@ -76,7 +76,7 @@ function App() {
       <input
       style={{ display:'inline-block', minWidth:'2em'}} 
       onChange={(e) => {
-        setInputNote(e.target.value);
+        setInputNote(e.target.value.replace(/[^a-gA-G#\d]/, '').slice(0, 3));
         updateSvg(e.target.value);
       }}
       value={inputNote}
