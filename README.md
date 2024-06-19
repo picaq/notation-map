@@ -13,6 +13,7 @@
   - [ ] allows arrow keys to move through staff
   - [x] additional arrays for different key signatures? maybe?
 - [x] flats and sharps as floats? (or different array)
+- [ ] cache note svg before redrawing
 - [ ] set note ranges for instruments
   - [ ] highlight top and bottom notes at the edge of range 
 - [ ] link to physical instruments: image map? svg? buttons?
